@@ -9,9 +9,12 @@ blueprint:
 
 fields:
   addresses:
+    name: Addresses
     description: A list of KNX group addresses
     required: true
-  value:
+  payload:
+    name: Payload
+    description: The value to send to the KNX group addresses
     required: true
 sequence:
   - action: knx.send

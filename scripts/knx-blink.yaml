@@ -9,18 +9,23 @@ blueprint:
 
 fields:
   addresses:
+    name: Addresses
     description: A list of KNX group addresses
     required: true
   blink_count:
+    name: Blink Count
     description: The number of times to blink
   blink_duration:
+    name: Blink Duration
     description: >-
       The time (in milliseconds) to wait between blinks
     default: 500
   value_on:
+    name: Value On
     description: "The value to send when blinking on"
     default: 1
   value_off:
+    name: Value Off
     description: "The value to send when blinking off"
     default: 0
 sequence:
