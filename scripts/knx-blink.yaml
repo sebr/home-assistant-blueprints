@@ -1,5 +1,5 @@
 blueprint:
-  name: Blink KNX
+  name: "KNX: Blink"
   author: Seb Ruiz (https://github.com/sebr)
   homeassistant:
     min_version: "2025.5.0"
@@ -17,6 +17,12 @@ fields:
     description: >-
       The time (in milliseconds) to wait between blinks
     default: 500
+  value_on:
+    description: "The value to send when blinking on"
+    default: 1
+  value_off:
+    description: "The value to send when blinking off"
+    default: 0
 sequence:
   - repeat:
       count: "{{ blink_count * 2 }}"
@@ -26,7 +32,7 @@ sequence:
           data:
             response: false
             address: "{{ addresses }}"
-            payload: "{{ repeat.index % 0 }}"
+            payload: "{{ iif(repeat.index % 0, value_on, value_off) }}"
         - delay:
             hours: 0
             minutes: 0

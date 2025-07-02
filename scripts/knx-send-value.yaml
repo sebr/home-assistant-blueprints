@@ -1,5 +1,5 @@
 blueprint:
-  name: Blink KNX
+  name: "KNX: Send Value"
   author: Seb Ruiz (https://github.com/sebr)
   homeassistant:
     min_version: "2025.5.0"
