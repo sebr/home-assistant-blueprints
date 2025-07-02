@@ -1,0 +1,23 @@
+blueprint:
+  name: Blink KNX
+  author: Seb Ruiz (https://github.com/sebr)
+  homeassistant:
+    min_version: "2025.5.0"
+  description: Send a value to KNX group addresses
+  domain: script
+  source_url: https://raw.githubusercontent.com/sebr/home-assistant-blueprints/main/scripts/knx-send-value.yaml
+
+fields:
+  addresses:
+    description: A list of KNX group addresses
+    required: true
+  value:
+    required: true
+sequence:
+  - action: knx.send
+    metadata: {}
+    data:
+      response: false
+      address: "{{ addresses }}"
+      payload: "{{ payload }}"
+mode: parallel

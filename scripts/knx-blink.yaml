@@ -5,17 +5,18 @@ blueprint:
     min_version: "2025.5.0"
   description: Blink KNX indicators
   domain: script
-  source_url: https://raw.githubusercontent.com/sebr/home-assistant-blueprints/main/scripts/blink-knx.yaml
+  source_url: https://raw.githubusercontent.com/sebr/home-assistant-blueprints/main/scripts/knx-blink.yaml
 
 fields:
   addresses:
-    name: addresses
     description: A list of KNX group addresses
+    required: true
   blink_count:
     description: The number of times to blink
   blink_duration:
     description: >-
       The time (in milliseconds) to wait between blinks
+    default: 500
 sequence:
   - repeat:
       count: "{{ blink_count * 2 }}"
